@@ -1,12 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Deploy the Disintegrate DeFi Protocol application to the Internet Computer mainnet for production use.
+**Goal:** Integrate a wallet interface that displays ICP and Disintegrate token balances for authenticated users.
 
 **Planned changes:**
-- Deploy backend canister to Internet Computer mainnet
-- Deploy frontend canister to Internet Computer mainnet
-- Configure frontend to connect to production backend canister
-- Verify Internet Identity authentication works in production
+- Add wallet component showing ICP and Disintegrate token balances side-by-side
+- Implement backend query function to retrieve user's ICP balance from ledger canister
+- Create React Query hook to fetch ICP balance from backend
+- Restrict wallet UI to only show ICP and Disintegrate tokens
 
-**User-visible outcome:** Users can access the fully functional Disintegrate DeFi Protocol on the Internet Computer mainnet, where they can burn ICP tokens, track their burns, and claim DSNT tokens using Internet Identity authentication.
+**User-visible outcome:** After authenticating with Internet Identity, users can view their ICP and Disintegrate token balances in a unified wallet interface that supports only these two tokens.

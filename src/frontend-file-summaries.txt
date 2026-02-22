@@ -1,13 +1,14 @@
 {
-  "frontend/src/App.tsx": "Main application component wrapping the app with ThemeProvider, InternetIdentityProvider, and Layout, rendering BurnInterface and BurnHistory with toast notifications.",
+  "frontend/src/App.tsx": "Main application component wrapping the app with ThemeProvider, InternetIdentityProvider, and Layout, rendering WalletInterface, BurnInterface, and BurnHistory with toast notifications.",
   "frontend/src/components/Layout.tsx": "Layout wrapper component providing cyberpunk-themed header with animated background, grid overlay, and footer with copyright information only.",
   "frontend/src/components/BurnInterface.tsx": "Primary burn interface with integrated token balance display, ICP address with copy functionality, amount input, and burn button that triggers token claiming with Internet Identity authentication.",
   "frontend/src/components/BurnAnimation.tsx": "Animated visualization component showing the ICP burn icon with particle effects, glow rings, and pulsing animations during burn operations.",
   "frontend/src/components/BurnHistory.tsx": "Enhanced history table displaying burn transactions with timestamps, ICP amounts, and corresponding Disintegrate tokens earned, including totals for both ICP burned and DIS tokens earned.",
   "frontend/src/hooks/useBurnTransaction.ts": "Custom hook managing burn transaction state, calling backend recordBurn method, and invalidating queries on success.",
-  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching burn history and Disintegrate token balance from the backend, with proper actor and identity dependencies.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching burn history, Disintegrate token balance, and ICP balance from the backend with proper actor and identity dependencies.",
   "frontend/src/index.css": "Global styles with cyberpunk color palette using OKLCH, custom fonts (Orbitron, Rajdhani), glow effects, and floating particle animations.",
   "frontend/tailwind.config.js": "Tailwind configuration extended with cyberpunk color tokens, custom fonts, glow shadows, and animation utilities for the DeFi theme.",
   "frontend/src/hooks/useClaimTokens.ts": "Custom hook managing the Disintegrate token claiming process by calling the backend's claimTokens method with authenticated user principal and burn amount, handling loading states and query invalidation.",
-  "frontend/src/components/TokenBalanceDisplay.tsx": "Component displaying user's Disintegrate token balance with cyberpunk styling, showing login prompt for unauthenticated users and balance information with 1:1 ratio explanation for authenticated users."
+  "frontend/src/components/TokenBalanceDisplay.tsx": "Component displaying user's Disintegrate token balance with cyberpunk styling, showing login prompt for unauthenticated users and balance information with 1:1 ratio explanation for authenticated users.",
+  "frontend/src/components/WalletInterface.tsx": "Wallet component displaying ICP and Disintegrate token balances in separate cyberpunk-styled cards with glow effects, showing login prompt for unauthenticated users and restricting display to only these two token types."
 }

@@ -1,21 +1,53 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "Disintegrate DeFi Protocol - A decentralized finance protocol that allows users to burn ICP tokens to receive tokens, with burn history tracking and token claiming features",
   "architectural_notes": [
     "DeFi protocol with ICP token burning mechanism",
     "Token claiming system implemented",
-    "Burn history tracking feature"
+    "Burn history tracking feature",
+    "Wallet integration supporting ICP and Disintegrate tokens"
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "existing_features": [],
-  "new_feature_requests": [
+  "existing_features": [
     {
-      "id": "AR-1",
-      "summary": "Deploy the current application version to the Internet Computer mainnet for production use",
+      "id": "feature-add-a-wallet-interface-component-that-displays-both-icp-and-disintegrate-token-balances-side-by-side-in-the-ui",
+      "title": "Add a wallet interface component that displays both ICP and Disintegrate token balances side-by-side in the UI",
       "reqIds": [
         "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-react-query-hook-to-fetch-icp-balance-from-the-backend-actor",
+      "title": "Create a React Query hook to fetch ICP balance from the backend actor",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-wallet-interface-to-restrict-token-interactions-to-only-icp-and-disintegrate-tokens-preventing-any-other-token-types-from-being-displayed-or-transferred",
+      "title": "Update the wallet interface to restrict token interactions to only ICP and Disintegrate tokens, preventing any other token types from being displayed or transferred",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-2",
+      "summary": "Integrate wallet that supports ICP and Disintegrate token only",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement backend query function to retrieve the authenticated user's ICP balance",
+      "reqIds": [
+        "REQ-2"
       ],
       "status": "pending"
     }

@@ -1,5 +1,6 @@
 import { BurnInterface } from './components/BurnInterface';
 import { BurnHistory } from './components/BurnHistory';
+import { WalletInterface } from './components/WalletInterface';
 import { Layout } from './components/Layout';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from 'next-themes';
@@ -11,6 +12,7 @@ function App() {
       <InternetIdentityProvider>
         <Layout>
           <div className="container mx-auto px-4 py-8 space-y-12">
+            <WalletInterface />
             <BurnInterface />
             <BurnHistory />
           </div>

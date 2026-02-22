@@ -100,7 +100,7 @@ export interface backendInterface {
     getAllBalancesSorted(): Promise<Array<Balance>>;
     getAllBurnEvents(): Promise<Array<BurnTransaction>>;
     getAllBurnEventsByAmount(): Promise<Array<BurnTransaction>>;
-    getBalance(caller: Principal): Promise<DisintegrateTokens | null>;
+    getBalance(_principal: Principal): Promise<DisintegrateTokens | null>;
     getBurnAmount(time: Time): Promise<BurnAmount>;
     getBurnEventsInRange(startTime: Time, endTime: Time): Promise<Array<BurnTransaction>>;
 }

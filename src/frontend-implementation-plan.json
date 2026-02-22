@@ -1,32 +1,59 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Deploy Disintegrate DeFi Protocol to Production",
+  "title": "Integrate wallet supporting ICP and Disintegrate token",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Deploy the current application version to the Internet Computer mainnet for production use",
+      "summary": "Add a wallet interface component that displays both ICP and Disintegrate token balances side-by-side in the UI",
       "acceptanceCriteria": [
-        "Application is accessible via a production Internet Computer canister URL",
-        "All backend functionality (burn tracking, token claiming, balance queries) works on mainnet",
-        "Frontend connects to the production backend canister",
-        "Internet Identity authentication works in production environment"
+        "Wallet component shows ICP balance",
+        "Wallet component shows Disintegrate token balance",
+        "Both balances are displayed in a unified wallet interface",
+        "Wallet is only accessible when user is authenticated via Internet Identity"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/main.tsx",
-          "operation": "modify",
-          "description": "Update the Internet Identity provider configuration to use the production Internet Identity canister URL for mainnet deployment. Verify that the AuthClient initialization uses the correct production endpoints."
+          "path": "frontend/src/components/WalletInterface.tsx",
+          "operation": "create",
+          "description": "Create a new WalletInterface component that displays both ICP and Disintegrate token balances in a unified cyberpunk-styled card interface. The component should check authentication status using useInternetIdentity hook and only render balance information when authenticated. Show a login prompt for unauthenticated users. Use the existing cyberpunk theme with glow effects and gradient borders. Display ICP balance retrieved via the useICPBalance hook and Disintegrate token balance via the existing balance query hook."
         },
         {
-          "path": "frontend/src/hooks/useActor.ts",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Ensure the actor creation uses the production backend canister ID and mainnet host URL. Update the agent configuration to connect to the mainnet IC network instead of local replica."
-        },
+          "description": "Import and add the WalletInterface component to the application layout. Place it above the BurnInterface component so users can see their wallet balances before performing burn operations. Ensure it is wrapped within the same Layout component and toast notification context."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create a React Query hook to fetch ICP balance from the backend actor",
+      "acceptanceCriteria": [
+        "Hook follows the pattern established in useQueries.ts",
+        "Hook automatically refetches when actor changes",
+        "Hook provides loading, error, and data states"
+      ],
+      "file_operations": [
         {
-          "path": "frontend/index.html",
+          "path": "frontend/src/hooks/useQueries.ts",
           "operation": "modify",
-          "description": "Update meta tags and configuration for production deployment, ensuring proper asset references and canonical URLs for the mainnet environment."
+          "description": "Add a new useICPBalance hook following the existing pattern in this file. The hook should accept the backend actor as a parameter, use useQuery with a unique query key ['icpBalance', actor], and call a backend function to retrieve the authenticated user's ICP balance. Include enabled condition checking for actor existence. Return loading, error, and data states consistent with existing hooks in this file. The backend function will return balance in e8s format which should be exposed as-is in the data state."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Update the wallet interface to restrict token interactions to only ICP and Disintegrate tokens, preventing any other token types from being displayed or transferred",
+      "acceptanceCriteria": [
+        "Wallet UI explicitly shows only ICP and Disintegrate token",
+        "No UI elements for adding or viewing other token types",
+        "Clear visual indication that this is a restricted wallet"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WalletInterface.tsx",
+          "operation": "modify",
+          "description": "Ensure the WalletInterface component explicitly renders only two token cards: one for ICP and one for Disintegrate token. Add a header or subtitle indicating this is a restricted wallet (e.g., 'ICP & Disintegrate Wallet'). Do not include any UI elements for adding, importing, or displaying other token types. Use distinct visual styling for each token card to differentiate ICP from Disintegrate tokens while maintaining the cyberpunk theme."
         }
       ]
     }

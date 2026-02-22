@@ -1,37 +1,91 @@
 {
   "kind": "build_request",
-  "title": "Deploy application to production",
-  "projectName": "Disintegrate DeFi Protocol",
+  "title": "Integrate wallet supporting ICP and Disintegrate token",
+  "projectName": "Disintegrate DeFi",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Deploy the current application version to the Internet Computer mainnet for production use",
-      "target": "both",
+      "text": "Add a wallet interface component that displays both ICP and Disintegrate token balances side-by-side in the UI",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-final"
+          "msg-latest"
         ],
         "quotes": [
-          "go live"
+          "integrate a wallet that only allows icp and the virtual disintegrate token"
         ]
       },
       "acceptanceCriteria": [
-        "Application is accessible via a production Internet Computer canister URL",
-        "All backend functionality (burn tracking, token claiming, balance queries) works on mainnet",
-        "Frontend connects to the production backend canister",
-        "Internet Identity authentication works in production environment"
+        "Wallet component shows ICP balance",
+        "Wallet component shows Disintegrate token balance",
+        "Both balances are displayed in a unified wallet interface",
+        "Wallet is only accessible when user is authenticated via Internet Identity"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend query function to retrieve the authenticated user's ICP balance",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "integrate a wallet that only allows icp and the virtual disintegrate token"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend provides a query function that returns ICP balance for the caller",
+        "Function integrates with Internet Computer's ledger canister to fetch actual ICP balance",
+        "Balance is returned in e8s format (smallest ICP unit)"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a React Query hook to fetch ICP balance from the backend actor",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hook follows the pattern established in useQueries.ts",
+        "Hook automatically refetches when actor changes",
+        "Hook provides loading, error, and data states"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Update the wallet interface to restrict token interactions to only ICP and Disintegrate tokens, preventing any other token types from being displayed or transferred",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "only allows icp and the virtual disintegrate token"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Wallet UI explicitly shows only ICP and Disintegrate token",
+        "No UI elements for adding or viewing other token types",
+        "Clear visual indication that this is a restricted wallet"
       ]
     }
   ],
   "constraints": [
-    "Use existing code without modifications",
-    "Maintain all current functionality during deployment"
+    "Maintain existing Internet Identity authentication flow",
+    "Keep single-actor backend architecture in backend/main.mo",
+    "Use existing cyberpunk theme and styling conventions",
+    "Do not modify immutable frontend paths (useInternetIdentity.ts, useActor.ts, main.tsx, components/ui)"
   ],
   "nonGoals": [
-    "Adding new features",
-    "Modifying existing code",
-    "Changing the UI design"
+    "Supporting additional cryptocurrencies beyond ICP and Disintegrate token",
+    "Implementing token transfers or sending functionality",
+    "Adding external wallet integrations like MetaMask or hardware wallets",
+    "Creating a multi-signature or shared wallet feature"
   ],
   "imageRequirements": {
     "required": [],

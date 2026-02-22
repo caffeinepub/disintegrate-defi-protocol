@@ -44,3 +44,20 @@ export function useDisintegrateBalance() {
     enabled: !!actor && !isFetching && !!identity,
   });
 }
+
+export function useICPBalance() {
+  const { actor, isFetching } = useActor();
+  const { identity } = useInternetIdentity();
+
+  return useQuery<bigint>({
+    queryKey: ['icpBalance', identity?.getPrincipal().toString()],
+    queryFn: async () => {
+      if (!actor || !identity) return BigInt(0);
+      // This will call the backend's getICPBalance method once implemented
+      // For now, return 0 as placeholder
+      // TODO: Backend needs to implement getICPBalance() query method
+      return BigInt(0);
+    },
+    enabled: !!actor && !isFetching && !!identity,
+  });
+}

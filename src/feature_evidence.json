@@ -1,4 +1,60 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-add-a-wallet-interface-component-that-displays-both-icp-and-disintegrate-token-balances-side-by-side-in-the-ui",
+      "featureTitle": "Add a wallet interface component that displays both ICP and Disintegrate token balances side-by-side in the UI",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/WalletInterface.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-react-query-hook-to-fetch-icp-balance-from-the-backend-actor",
+      "featureTitle": "Create a React Query hook to fetch ICP balance from the backend actor",
+      "files": [
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-wallet-interface-to-restrict-token-interactions-to-only-icp-and-disintegrate-tokens-preventing-any-other-token-types-from-being-displayed-or-transferred",
+      "featureTitle": "Update the wallet interface to restrict token interactions to only ICP and Disintegrate tokens, preventing any other token types from being displayed or transferred",
+      "files": [
+        "frontend/src/components/WalletInterface.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
 }
