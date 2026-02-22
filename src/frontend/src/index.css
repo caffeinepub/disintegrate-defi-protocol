@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Cyberpunk color palette - Light mode (rarely used) */
+        --background: 0.98 0 0;
+        --foreground: 0.15 0 0;
+        --card: 0.99 0 0;
+        --card-foreground: 0.15 0 0;
+        --popover: 0.99 0 0;
+        --popover-foreground: 0.15 0 0;
+        --primary: 0.25 0 0;
+        --primary-foreground: 0.98 0 0;
+        --secondary: 0.95 0 0;
+        --secondary-foreground: 0.15 0 0;
+        --muted: 0.95 0 0;
+        --muted-foreground: 0.50 0 0;
+        --accent: 0.95 0 0;
+        --accent-foreground: 0.15 0 0;
+        --destructive: 0.60 0.25 27;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.90 0 0;
+        --input: 0.90 0 0;
+        --ring: 0.70 0 0;
+        
+        /* Cyberpunk accent colors */
+        --cyber-cyan: 0.75 0.15 195;
+        --cyber-magenta: 0.65 0.25 330;
+        --cyber-blue: 0.60 0.20 250;
+        --cyber-purple: 0.45 0.18 280;
+        --cyber-dark: 0.15 0.05 280;
+    }
+
+    .dark {
+        /* Dark cyberpunk theme */
+        --background: 0.12 0.03 280;
+        --foreground: 0.95 0.05 195;
+        --card: 0.18 0.04 280;
+        --card-foreground: 0.95 0.05 195;
+        --popover: 0.15 0.04 280;
+        --popover-foreground: 0.95 0.05 195;
+        --primary: 0.75 0.15 195;
+        --primary-foreground: 0.12 0.03 280;
+        --secondary: 0.25 0.06 280;
+        --secondary-foreground: 0.95 0.05 195;
+        --muted: 0.25 0.06 280;
+        --muted-foreground: 0.65 0.08 195;
+        --accent: 0.35 0.10 280;
+        --accent-foreground: 0.95 0.05 195;
+        --destructive: 0.60 0.25 27;
+        --destructive-foreground: 0.95 0 0;
+        --border: 0.30 0.08 280;
+        --input: 0.25 0.06 280;
+        --ring: 0.75 0.15 195;
+        
+        /* Enhanced cyberpunk accents for dark mode */
+        --cyber-cyan: 0.75 0.18 195;
+        --cyber-magenta: 0.68 0.28 330;
+        --cyber-blue: 0.65 0.22 250;
+        --cyber-purple: 0.50 0.20 280;
+        --cyber-dark: 0.10 0.04 280;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    .font-display {
+        font-family: 'Orbitron', monospace;
+    }
+}
+
+@layer utilities {
+    /* Glow effects */
+    .glow-text {
+        text-shadow: 
+            0 0 10px oklch(var(--cyber-cyan) / 0.5),
+            0 0 20px oklch(var(--cyber-cyan) / 0.3),
+            0 0 30px oklch(var(--cyber-magenta) / 0.2);
+    }
+    
+    .glow-text-sm {
+        text-shadow: 
+            0 0 5px oklch(var(--cyber-cyan) / 0.4),
+            0 0 10px oklch(var(--cyber-cyan) / 0.2);
+    }
+    
+    .shadow-glow {
+        box-shadow: 
+            0 0 20px oklch(var(--cyber-cyan) / 0.15),
+            0 0 40px oklch(var(--cyber-cyan) / 0.08),
+            0 4px 6px -1px rgb(0 0 0 / 0.3);
+    }
+    
+    .shadow-glow-magenta {
+        box-shadow: 
+            0 0 20px oklch(var(--cyber-magenta) / 0.2),
+            0 0 40px oklch(var(--cyber-magenta) / 0.1),
+            0 4px 6px -1px rgb(0 0 0 / 0.3);
+    }
+    
+    /* Animations */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) translateX(0);
+            opacity: 1;
+        }
+        50% {
+            transform: translateY(-100px) translateX(20px);
+            opacity: 0;
+        }
+    }
+    
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .animation-delay-500 {
+        animation-delay: 0.5s;
+    }
+    
+    .animation-delay-1000 {
+        animation-delay: 1s;
+    }
+}

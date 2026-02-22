@@ -1,0 +1,40 @@
+{
+  "kind": "build_request",
+  "title": "Deploy application to production",
+  "projectName": "Disintegrate DeFi Protocol",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Deploy the current application version to the Internet Computer mainnet for production use",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ],
+        "quotes": [
+          "go live"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Application is accessible via a production Internet Computer canister URL",
+        "All backend functionality (burn tracking, token claiming, balance queries) works on mainnet",
+        "Frontend connects to the production backend canister",
+        "Internet Identity authentication works in production environment"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use existing code without modifications",
+    "Maintain all current functionality during deployment"
+  ],
+  "nonGoals": [
+    "Adding new features",
+    "Modifying existing code",
+    "Changing the UI design"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

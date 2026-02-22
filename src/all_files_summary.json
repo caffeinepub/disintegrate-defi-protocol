@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Main actor implementing a DeFi protocol that tracks ICP burn events and manages Disintegrate token balances, providing queries for balances, burn history, and a claimTokens function that awards 1 token per burn.",
+  "backend/migration.mo": "Migration module with a run function that currently performs no-op data migration, prepared for future schema extensions.",
+  "feature_evidence.json": "Empty feature evidence report JSON file with no features documented.",
+  "frontend-file-summaries.txt": "JSON-formatted summaries of frontend TypeScript/React components, hooks, and configuration files describing the UI structure and functionality of the burn interface application.",
+  "frontend/index.css": "Tailwind CSS configuration with custom CSS variables defining light and dark theme color palettes using OKLCH color space for cyberpunk-themed styling.",
+  "frontend/index.html": "HTML entry point for the Disintegrate DeFi Protocol application with root div and module script reference to main.tsx.",
+  "frontend/src/App.tsx": "Root React component wrapping the application with ThemeProvider, InternetIdentityProvider, Layout, and rendering BurnInterface and BurnHistory components with toast notifications.",
+  "frontend/src/components/BurnAnimation.tsx": "Animated component displaying ICP burn icon with particle effects, pulsing glow rings, and status text that activates during burn operations.",
+  "frontend/src/components/BurnHistory.tsx": "Table component displaying burn transaction history with timestamps, ICP amounts, and Disintegrate tokens earned, including total summaries for both metrics.",
+  "frontend/src/components/BurnInterface.tsx": "Primary burn interface with ICP address display and copy functionality, amount input field, burn button, and integration with TokenBalanceDisplay and BurnAnimation components using Internet Identity authentication.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper providing cyberpunk-themed header with animated background, gradient overlays, grid pattern, and footer with copyright information.",
+  "frontend/src/components/TokenBalanceDisplay.tsx": "React component that displays the user's Disintegrate token balance with a cyberpunk-styled card UI, showing login prompt for unauthenticated users and balance information for authenticated users.",
+  "frontend/src/hooks/useActor.ts": "Custom React hook that creates and manages the backend actor instance based on Internet Identity authentication state, automatically invalidating dependent queries when the actor changes.",
+  "frontend/src/hooks/useBurnTransaction.ts": "Empty file with no content.",
+  "frontend/src/hooks/useClaimTokens.ts": "Custom React hook that handles token claiming logic, managing loading/success/error states and invalidating relevant queries after successful token claims.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Comprehensive Internet Identity authentication provider and hook implementation that manages login state, identity persistence, and AuthClient configuration with support for delegation identity validation.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for fetching burn history (by time and amount) and user's Disintegrate token balance from the backend actor.",
+  "frontend/src/index.css": "Global CSS file defining cyberpunk-themed color palette using OKLCH color space, custom fonts (Orbitron, Rajdhani), glow effects, and animations for the dark-mode UI.",
+  "frontend/src/main.tsx": "Application entry point that sets up React root with QueryClientProvider and InternetIdentityProvider wrappers around the main App component.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the default theme with cyberpunk color palette, custom shadows, OKLCH color support, and additional plugins for typography, container queries, and animations.",
+  "project_state.json": "Project metadata file describing the Disintegrate DeFi Protocol with ICP token burning mechanism, tracking one pending feature request to deploy the application to Internet Computer mainnet."
+}

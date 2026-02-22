@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Disintegrate DeFi Protocol - A decentralized finance protocol that allows users to burn ICP tokens to receive tokens, with burn history tracking and token claiming features",
+  "architectural_notes": [
+    "DeFi protocol with ICP token burning mechanism",
+    "Token claiming system implemented",
+    "Burn history tracking feature"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Deploy the current application version to the Internet Computer mainnet for production use",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Disintegrate DeFi Protocol",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
